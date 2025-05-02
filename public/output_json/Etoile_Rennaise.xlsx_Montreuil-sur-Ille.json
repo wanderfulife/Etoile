@@ -1,0 +1,442 @@
+[
+    {
+        "id": 1,
+        "name": "Le Talut"
+    },
+    {
+        "id": 2,
+        "name": "Villemé"
+    },
+    {
+        "id": 3,
+        "name": "La Marchandière"
+    },
+    {
+        "id": 4,
+        "name": "La Madeleine"
+    },
+    {
+        "id": 5,
+        "name": "La Lande"
+    },
+    {
+        "id": 6,
+        "name": "La Haute Chevrue"
+    },
+    {
+        "id": 7,
+        "name": "La touche"
+    },
+    {
+        "id": 8,
+        "name": "La Perche"
+    },
+    {
+        "id": 9,
+        "name": "Le Stand"
+    },
+    {
+        "id": 10,
+        "name": "Le Ducet"
+    },
+    {
+        "id": 11,
+        "name": "La Piffaudiere"
+    },
+    {
+        "id": 12,
+        "name": "Les Fontenelles"
+    },
+    {
+        "id": 13,
+        "name": "la Provôtais"
+    },
+    {
+        "id": 14,
+        "name": "Lieu Dit Bellevue"
+    },
+    {
+        "id": 15,
+        "name": "Le Clairet"
+    },
+    {
+        "id": 16,
+        "name": "La Roche"
+    },
+    {
+        "id": 17,
+        "name": "Les Fougerais"
+    },
+    {
+        "id": 18,
+        "name": "La Mare"
+    },
+    {
+        "id": 19,
+        "name": "Langage"
+    },
+    {
+        "id": 20,
+        "name": "La butte"
+    },
+    {
+        "id": 21,
+        "name": "Les brulais"
+    },
+    {
+        "id": 22,
+        "name": "La Maquerais"
+    },
+    {
+        "id": 23,
+        "name": "La Chevrue"
+    },
+    {
+        "id": 24,
+        "name": "La Riviere"
+    },
+    {
+        "id": 25,
+        "name": "Chanclin"
+    },
+    {
+        "id": 26,
+        "name": "Lieu Dit Langager"
+    },
+    {
+        "id": 27,
+        "name": "Lieu Dit Beaulieu"
+    },
+    {
+        "id": 28,
+        "name": "Lieu Dit Beausejour"
+    },
+    {
+        "id": 29,
+        "name": "La boulayère"
+    },
+    {
+        "id": 30,
+        "name": "Les Cruchettes"
+    },
+    {
+        "id": 31,
+        "name": "La Favrie"
+    },
+    {
+        "id": 32,
+        "name": "La Haute Favrie"
+    },
+    {
+        "id": 33,
+        "name": "La Basse Favrie"
+    },
+    {
+        "id": 34,
+        "name": "le Feuil"
+    },
+    {
+        "id": 35,
+        "name": "La Garenne"
+    },
+    {
+        "id": 36,
+        "name": "Ille"
+    },
+    {
+        "id": 37,
+        "name": "Montreuil-sur-Ille"
+    },
+    {
+        "id": 38,
+        "name": "Rue Aristide Tribalet"
+    },
+    {
+        "id": 39,
+        "name": "Chemin Mène"
+    },
+    {
+        "id": 40,
+        "name": "Le Mitan Vilemé"
+    },
+    {
+        "id": 41,
+        "name": "Le Haut Vilemé"
+    },
+    {
+        "id": 42,
+        "name": "La Touche Gauthier"
+    },
+    {
+        "id": 43,
+        "name": "Rue Marchandiere"
+    },
+    {
+        "id": 44,
+        "name": "Le Bas Villemé"
+    },
+    {
+        "id": 45,
+        "name": "Avenue Alexis Rey"
+    },
+    {
+        "id": 46,
+        "name": "Pierre Bise"
+    },
+    {
+        "id": 47,
+        "name": "Rue du chaland"
+    },
+    {
+        "id": 48,
+        "name": "Haute Pilais"
+    },
+    {
+        "id": 49,
+        "name": "Le Haut Chanclin"
+    },
+    {
+        "id": 50,
+        "name": "Rue de Gras d'Eve"
+    },
+    {
+        "id": 51,
+        "name": "Rue des Bateliers"
+    },
+    {
+        "id": 52,
+        "name": "Rue de la Gare"
+    },
+    {
+        "id": 53,
+        "name": "Residence du Clos du Puits"
+    },
+    {
+        "id": 54,
+        "name": "Rue des Chênes"
+    },
+    {
+        "id": 55,
+        "name": "Rue des Gabares"
+    },
+    {
+        "id": 56,
+        "name": "Rue du Botrel"
+    },
+    {
+        "id": 57,
+        "name": "Le Manoir de la Hauteville"
+    },
+    {
+        "id": 58,
+        "name": "La Croix Havard"
+    },
+    {
+        "id": 59,
+        "name": "La Croix Verte"
+    },
+    {
+        "id": 60,
+        "name": "Rue des Ecoles"
+    },
+    {
+        "id": 61,
+        "name": "Les Cours Romé"
+    },
+    {
+        "id": 62,
+        "name": "Rue Jacques Monnerie"
+    },
+    {
+        "id": 63,
+        "name": "Champs Blancs"
+    },
+    {
+        "id": 64,
+        "name": "Les Cours Gallais"
+    },
+    {
+        "id": 65,
+        "name": "Rue du Clos Gérard"
+    },
+    {
+        "id": 66,
+        "name": "Impasse Cite Rey"
+    },
+    {
+        "id": 67,
+        "name": "Les Jardins de la Garenne"
+    },
+    {
+        "id": 68,
+        "name": "impasse du bief"
+    },
+    {
+        "id": 69,
+        "name": "Rue des Ecluses"
+    },
+    {
+        "id": 70,
+        "name": "Haut Epinay"
+    },
+    {
+        "id": 71,
+        "name": "Lotissement Ker Manati"
+    },
+    {
+        "id": 72,
+        "name": "Le Hameau des Pecheurs"
+    },
+    {
+        "id": 73,
+        "name": "Rue de la Bédorière"
+    },
+    {
+        "id": 74,
+        "name": "Rue Sebastien Chauvigne"
+    },
+    {
+        "id": 75,
+        "name": "Haut Commun"
+    },
+    {
+        "id": 76,
+        "name": "Rue de la Hauteville"
+    },
+    {
+        "id": 77,
+        "name": "Square du Clos Paisible"
+    },
+    {
+        "id": 78,
+        "name": "Résidence du Parc"
+    },
+    {
+        "id": 79,
+        "name": "Le Petit Rocher"
+    },
+    {
+        "id": 80,
+        "name": "square de l'armor"
+    },
+    {
+        "id": 81,
+        "name": "Les champs richeux"
+    },
+    {
+        "id": 82,
+        "name": "Square du Botrel"
+    },
+    {
+        "id": 83,
+        "name": "Impasse des Buttes"
+    },
+    {
+        "id": 84,
+        "name": "Square Jean Bohuon"
+    },
+    {
+        "id": 85,
+        "name": "Rue des Artisans"
+    },
+    {
+        "id": 86,
+        "name": "Rue de Coubry"
+    },
+    {
+        "id": 87,
+        "name": "Le Bas Chanclin"
+    },
+    {
+        "id": 88,
+        "name": "Rue du Docteur Lemoine"
+    },
+    {
+        "id": 89,
+        "name": "Rue des Péniches"
+    },
+    {
+        "id": 90,
+        "name": "Impasse de la Garconniere"
+    },
+    {
+        "id": 91,
+        "name": "Le Petit Noyan"
+    },
+    {
+        "id": 92,
+        "name": "Bel Air"
+    },
+    {
+        "id": 93,
+        "name": "Rue de la barge"
+    },
+    {
+        "id": 94,
+        "name": "La Croix Blanche"
+    },
+    {
+        "id": 95,
+        "name": "Impasse des Fontenelles"
+    },
+    {
+        "id": 96,
+        "name": "Lotissement les Hauts de l'Ille"
+    },
+    {
+        "id": 97,
+        "name": "Impasse de la Bédorière"
+    },
+    {
+        "id": 98,
+        "name": "Rue des Lilas"
+    },
+    {
+        "id": 99,
+        "name": "Rue Albert Jugon"
+    },
+    {
+        "id": 100,
+        "name": "Bas Noyan"
+    },
+    {
+        "id": 101,
+        "name": "Rue du Presbytère"
+    },
+    {
+        "id": 102,
+        "name": "Le champs sous bois"
+    },
+    {
+        "id": 103,
+        "name": "les Champs Micard"
+    },
+    {
+        "id": 104,
+        "name": "Rue des Usines"
+    },
+    {
+        "id": 105,
+        "name": "Gras d'Eve"
+    },
+    {
+        "id": 106,
+        "name": "La Lande Basse"
+    },
+    {
+        "id": 107,
+        "name": "Bas Commun"
+    },
+    {
+        "id": 108,
+        "name": "Bas Epinay"
+    },
+    {
+        "id": 109,
+        "name": "Clos Paisible"
+    },
+    {
+        "id": 110,
+        "name": "Haute Riviere"
+    }
+]

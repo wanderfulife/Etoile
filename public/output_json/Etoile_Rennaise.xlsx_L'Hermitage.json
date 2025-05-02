@@ -1,0 +1,526 @@
+[
+    {
+        "id": 1,
+        "name": "Rue Du Guesclin"
+    },
+    {
+        "id": 2,
+        "name": "Allée Jean Guéhenno"
+    },
+    {
+        "id": 3,
+        "name": "le Boberil"
+    },
+    {
+        "id": 4,
+        "name": "la Bretonnière"
+    },
+    {
+        "id": 5,
+        "name": "le Petit Champ de la Rivière"
+    },
+    {
+        "id": 6,
+        "name": "Allée de Beauvais"
+    },
+    {
+        "id": 7,
+        "name": "la Chèvrie"
+    },
+    {
+        "id": 8,
+        "name": "la Cochouais"
+    },
+    {
+        "id": 9,
+        "name": "la Croix Labbé"
+    },
+    {
+        "id": 10,
+        "name": "la Fauconnière"
+    },
+    {
+        "id": 11,
+        "name": "la Forge"
+    },
+    {
+        "id": 12,
+        "name": "Frétillé"
+    },
+    {
+        "id": 13,
+        "name": "Launay"
+    },
+    {
+        "id": 14,
+        "name": "les Lauriers"
+    },
+    {
+        "id": 15,
+        "name": "Marigné"
+    },
+    {
+        "id": 16,
+        "name": "la Robinière"
+    },
+    {
+        "id": 17,
+        "name": "la Tertrais"
+    },
+    {
+        "id": 18,
+        "name": "le Val"
+    },
+    {
+        "id": 19,
+        "name": "Vaujouan"
+    },
+    {
+        "id": 20,
+        "name": "la Verdais"
+    },
+    {
+        "id": 21,
+        "name": "la Musse"
+    },
+    {
+        "id": 22,
+        "name": "la Touche"
+    },
+    {
+        "id": 23,
+        "name": "le Janay"
+    },
+    {
+        "id": 24,
+        "name": "Chemin des Communs"
+    },
+    {
+        "id": 25,
+        "name": "le Champ Tracin"
+    },
+    {
+        "id": 26,
+        "name": "la Roseraie"
+    },
+    {
+        "id": 27,
+        "name": "le Champ Collin"
+    },
+    {
+        "id": 28,
+        "name": "Route de Montfort"
+    },
+    {
+        "id": 29,
+        "name": "Route du Rheu"
+    },
+    {
+        "id": 30,
+        "name": "Rue Odette Sansom"
+    },
+    {
+        "id": 31,
+        "name": "Rue Albert Meusnier"
+    },
+    {
+        "id": 32,
+        "name": "Allée de la Bérangeraie"
+    },
+    {
+        "id": 33,
+        "name": "Rue Alain Gerbault"
+    },
+    {
+        "id": 34,
+        "name": "Rue Anatole Le Braz"
+    },
+    {
+        "id": 35,
+        "name": "Rue Anne de Bretagne"
+    },
+    {
+        "id": 36,
+        "name": "Rue Honoré de Balzac"
+    },
+    {
+        "id": 37,
+        "name": "Place Aristide Briand"
+    },
+    {
+        "id": 38,
+        "name": "Allée du Bréal"
+    },
+    {
+        "id": 39,
+        "name": "Impasse des Campanules"
+    },
+    {
+        "id": 40,
+        "name": "Impasse des Cardamines"
+    },
+    {
+        "id": 41,
+        "name": "Rue Charcot"
+    },
+    {
+        "id": 42,
+        "name": "Rue Charles Le Goffic"
+    },
+    {
+        "id": 43,
+        "name": "Rue Chateaubriand"
+    },
+    {
+        "id": 44,
+        "name": "Rue de Cintré"
+    },
+    {
+        "id": 45,
+        "name": "Rue de Robien"
+    },
+    {
+        "id": 46,
+        "name": "Impasse Clos des Tilleuls"
+    },
+    {
+        "id": 47,
+        "name": "Rue Duguay-Trouin"
+    },
+    {
+        "id": 48,
+        "name": "Allée du Petit Domaine"
+    },
+    {
+        "id": 49,
+        "name": "Allée de la Source"
+    },
+    {
+        "id": 50,
+        "name": "Rue de l'Echange"
+    },
+    {
+        "id": 51,
+        "name": "Allée de la Flume"
+    },
+    {
+        "id": 52,
+        "name": "Rue Ernest Renan"
+    },
+    {
+        "id": 53,
+        "name": "Rue Eugène Lemordant"
+    },
+    {
+        "id": 54,
+        "name": "Place de la Gare"
+    },
+    {
+        "id": 55,
+        "name": "Rue de la Gare"
+    },
+    {
+        "id": 56,
+        "name": "Rue du Grand Clos"
+    },
+    {
+        "id": 57,
+        "name": "Allée du Gui Bunel"
+    },
+    {
+        "id": 58,
+        "name": "Allée de la Fauconnière"
+    },
+    {
+        "id": 59,
+        "name": "Rue Grande Rue"
+    },
+    {
+        "id": 60,
+        "name": "Rue de la Hautière"
+    },
+    {
+        "id": 61,
+        "name": "Mail Francis Chouan"
+    },
+    {
+        "id": 62,
+        "name": "Rue de la Grande Lanvière"
+    },
+    {
+        "id": 63,
+        "name": "Allée du Guesneau"
+    },
+    {
+        "id": 64,
+        "name": "Rue Jacques Cartier"
+    },
+    {
+        "id": 65,
+        "name": "Rue du Grand Chêne"
+    },
+    {
+        "id": 66,
+        "name": "Rue Jeanne Baret"
+    },
+    {
+        "id": 67,
+        "name": "Rue Jean Bart"
+    },
+    {
+        "id": 68,
+        "name": "Rue Jan Pilard"
+    },
+    {
+        "id": 69,
+        "name": "Rue Jeanne Jugan"
+    },
+    {
+        "id": 70,
+        "name": "Rue Jules Verne"
+    },
+    {
+        "id": 71,
+        "name": "Rue Laënnec"
+    },
+    {
+        "id": 72,
+        "name": "Rue Lamennais"
+    },
+    {
+        "id": 73,
+        "name": "Allée des Mussettes"
+    },
+    {
+        "id": 74,
+        "name": "Rue du Lavoir"
+    },
+    {
+        "id": 75,
+        "name": "Place de l'Hôtel de Ville"
+    },
+    {
+        "id": 76,
+        "name": "Allée du Margat"
+    },
+    {
+        "id": 77,
+        "name": "Allée du Mélody"
+    },
+    {
+        "id": 78,
+        "name": "Rue de la Meslais"
+    },
+    {
+        "id": 79,
+        "name": "Rue de Montfort"
+    },
+    {
+        "id": 80,
+        "name": "Rue de Mordelles"
+    },
+    {
+        "id": 81,
+        "name": "Allée de la Musse"
+    },
+    {
+        "id": 82,
+        "name": "Allée Olivier Moussy"
+    },
+    {
+        "id": 83,
+        "name": "Allée des Néfliers"
+    },
+    {
+        "id": 84,
+        "name": "Chemin des Nouettes"
+    },
+    {
+        "id": 85,
+        "name": "Rue de Pacé"
+    },
+    {
+        "id": 86,
+        "name": "Rue du Parc"
+    },
+    {
+        "id": 87,
+        "name": "Rue Pierre Guihard"
+    },
+    {
+        "id": 88,
+        "name": "Rue Pierre Loti"
+    },
+    {
+        "id": 89,
+        "name": "Rue de la Poste"
+    },
+    {
+        "id": 90,
+        "name": "Rue du Presbytère"
+    },
+    {
+        "id": 91,
+        "name": "Allée des Quatre Vents"
+    },
+    {
+        "id": 92,
+        "name": "Allée de la Rabine"
+    },
+    {
+        "id": 93,
+        "name": "Allée de la Randonnée"
+    },
+    {
+        "id": 94,
+        "name": "Rue de Rennes"
+    },
+    {
+        "id": 95,
+        "name": "Rue de la Rossignolière"
+    },
+    {
+        "id": 96,
+        "name": "Rue Surcouf"
+    },
+    {
+        "id": 97,
+        "name": "Rue de la Tertrais"
+    },
+    {
+        "id": 98,
+        "name": "Rue Théodore Botrel"
+    },
+    {
+        "id": 99,
+        "name": "Rue du Mervent"
+    },
+    {
+        "id": 100,
+        "name": "Rue de la Bougeaudière"
+    },
+    {
+        "id": 101,
+        "name": "Rue du Moulin"
+    },
+    {
+        "id": 102,
+        "name": "Rue de la Perrière"
+    },
+    {
+        "id": 103,
+        "name": "Impasse de la Noë Boucher"
+    },
+    {
+        "id": 104,
+        "name": "Rue du Portail"
+    },
+    {
+        "id": 105,
+        "name": "Rue du Clos Rohan"
+    },
+    {
+        "id": 106,
+        "name": "Rue de Galerne"
+    },
+    {
+        "id": 107,
+        "name": "Rue de Soulaire"
+    },
+    {
+        "id": 108,
+        "name": "Place Saint-Avit"
+    },
+    {
+        "id": 109,
+        "name": "Contour de l'Eglise"
+    },
+    {
+        "id": 110,
+        "name": "Allée des Cèdres"
+    },
+    {
+        "id": 111,
+        "name": "Allée des Écotays"
+    },
+    {
+        "id": 112,
+        "name": "Clos des Glycines"
+    },
+    {
+        "id": 113,
+        "name": "Clos des Quadrifides"
+    },
+    {
+        "id": 114,
+        "name": "la Basse Chèvrie"
+    },
+    {
+        "id": 115,
+        "name": "la Haute Lotodière"
+    },
+    {
+        "id": 116,
+        "name": "la Noë Biche"
+    },
+    {
+        "id": 117,
+        "name": "la Noë Colombier"
+    },
+    {
+        "id": 118,
+        "name": "la Noë Huet"
+    },
+    {
+        "id": 119,
+        "name": "le Patis du Chatellier"
+    },
+    {
+        "id": 120,
+        "name": "le Petit Launay"
+    },
+    {
+        "id": 121,
+        "name": "le Pont Douet"
+    },
+    {
+        "id": 122,
+        "name": "le Vieux Four"
+    },
+    {
+        "id": 123,
+        "name": "le Champ du Puits"
+    },
+    {
+        "id": 124,
+        "name": "Rue Madeleine Brès"
+    },
+    {
+        "id": 125,
+        "name": "Allée Delacroix-Cabon"
+    },
+    {
+        "id": 126,
+        "name": "Rue des Pommiers"
+    },
+    {
+        "id": 127,
+        "name": "Rue des Epinettes"
+    },
+    {
+        "id": 128,
+        "name": "Rue Suzanne Lenglen"
+    },
+    {
+        "id": 129,
+        "name": "Rue Florence Arthaud"
+    },
+    {
+        "id": 130,
+        "name": "Rue Geneviève de Gaulle-Anthonioz"
+    },
+    {
+        "id": 131,
+        "name": "Rue Simone Veil"
+    }
+]

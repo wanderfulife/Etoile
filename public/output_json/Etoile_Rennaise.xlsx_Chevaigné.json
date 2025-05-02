@@ -1,0 +1,302 @@
+[
+    {
+        "id": 1,
+        "name": "la Bénière"
+    },
+    {
+        "id": 2,
+        "name": "la Blosserais"
+    },
+    {
+        "id": 3,
+        "name": "la Branchère"
+    },
+    {
+        "id": 4,
+        "name": "la Cabochais"
+    },
+    {
+        "id": 5,
+        "name": "la Chemerais"
+    },
+    {
+        "id": 6,
+        "name": "Choisel"
+    },
+    {
+        "id": 7,
+        "name": "la Chopinais"
+    },
+    {
+        "id": 8,
+        "name": "le Cormier"
+    },
+    {
+        "id": 9,
+        "name": "la Fricausière"
+    },
+    {
+        "id": 10,
+        "name": "la Galonnais"
+    },
+    {
+        "id": 11,
+        "name": "la Hirdelais"
+    },
+    {
+        "id": 12,
+        "name": "les Landelles"
+    },
+    {
+        "id": 13,
+        "name": "la Motte"
+    },
+    {
+        "id": 14,
+        "name": "le Pont"
+    },
+    {
+        "id": 15,
+        "name": "Quenon"
+    },
+    {
+        "id": 16,
+        "name": "Rue des Tilleuls"
+    },
+    {
+        "id": 17,
+        "name": "Rue de la Forge"
+    },
+    {
+        "id": 18,
+        "name": "Clos de la Grande Coudrette"
+    },
+    {
+        "id": 19,
+        "name": "Allée de l'Arenti"
+    },
+    {
+        "id": 20,
+        "name": "Rue d'Abas"
+    },
+    {
+        "id": 21,
+        "name": "Route du Bois Denial"
+    },
+    {
+        "id": 22,
+        "name": "Rue du Champ Michel"
+    },
+    {
+        "id": 23,
+        "name": "Rue du Chêne Noblet"
+    },
+    {
+        "id": 24,
+        "name": "Impasse des Courtils"
+    },
+    {
+        "id": 25,
+        "name": "Rue des Courtils"
+    },
+    {
+        "id": 26,
+        "name": "Rue Félix Depail"
+    },
+    {
+        "id": 27,
+        "name": "Allée des Ecoliers"
+    },
+    {
+        "id": 28,
+        "name": "Place de l'Eglise"
+    },
+    {
+        "id": 29,
+        "name": "Rue des Fonderies"
+    },
+    {
+        "id": 30,
+        "name": "Place des Fouquets"
+    },
+    {
+        "id": 31,
+        "name": "Rue de Gautrel"
+    },
+    {
+        "id": 32,
+        "name": "Rue de la Grande Haie"
+    },
+    {
+        "id": 33,
+        "name": "Rue de la Géminais"
+    },
+    {
+        "id": 34,
+        "name": "Rue d'Ille et Rance"
+    },
+    {
+        "id": 35,
+        "name": "Rue des Hauts de l'Ille"
+    },
+    {
+        "id": 36,
+        "name": "Allée de la Janaie"
+    },
+    {
+        "id": 37,
+        "name": "Square du Clos"
+    },
+    {
+        "id": 38,
+        "name": "Impasse du Lieu Verrier"
+    },
+    {
+        "id": 39,
+        "name": "Square de la Lande"
+    },
+    {
+        "id": 40,
+        "name": "Allée du Moulin"
+    },
+    {
+        "id": 41,
+        "name": "Rue de la Mairie"
+    },
+    {
+        "id": 42,
+        "name": "Rue de la Motte"
+    },
+    {
+        "id": 43,
+        "name": "Rue des Noisilles"
+    },
+    {
+        "id": 44,
+        "name": "Square de la Nolière"
+    },
+    {
+        "id": 45,
+        "name": "Impasse de la Papillerie"
+    },
+    {
+        "id": 46,
+        "name": "Chemin du Pic"
+    },
+    {
+        "id": 47,
+        "name": "Rue des Pommiers"
+    },
+    {
+        "id": 48,
+        "name": "Rue de la Priouté"
+    },
+    {
+        "id": 49,
+        "name": "Rue de Rennes"
+    },
+    {
+        "id": 50,
+        "name": "Allée des Châtaigniers"
+    },
+    {
+        "id": 51,
+        "name": "Rue du Tertre"
+    },
+    {
+        "id": 52,
+        "name": "Chemin de la Vallée"
+    },
+    {
+        "id": 53,
+        "name": "Rue des Vergers"
+    },
+    {
+        "id": 54,
+        "name": "Rue de la Vieille Cour"
+    },
+    {
+        "id": 55,
+        "name": "Impasse du Vieux Puits"
+    },
+    {
+        "id": 56,
+        "name": "Allée des Vignes"
+    },
+    {
+        "id": 57,
+        "name": "Rue Monte-en-Haut"
+    },
+    {
+        "id": 58,
+        "name": "Allée Doux Grandas"
+    },
+    {
+        "id": 59,
+        "name": "Allée Doux Franquin"
+    },
+    {
+        "id": 60,
+        "name": "Rue Jour de Fête"
+    },
+    {
+        "id": 61,
+        "name": "Rue les Temps Modernes"
+    },
+    {
+        "id": 62,
+        "name": "Rue Jeux Interdits"
+    },
+    {
+        "id": 63,
+        "name": "Rue Barry Lindon"
+    },
+    {
+        "id": 64,
+        "name": "Rue les Enfants du Paradis"
+    },
+    {
+        "id": 65,
+        "name": "Allée des Guernazelles"
+    },
+    {
+        "id": 66,
+        "name": "Clos de la Petite Lande"
+    },
+    {
+        "id": 67,
+        "name": "le Bois Durand"
+    },
+    {
+        "id": 68,
+        "name": "le Champ au Bouin"
+    },
+    {
+        "id": 69,
+        "name": "le Clos Robert"
+    },
+    {
+        "id": 70,
+        "name": "la Haute Cabochais"
+    },
+    {
+        "id": 71,
+        "name": "le Petit Cormier"
+    },
+    {
+        "id": 72,
+        "name": "le Pont-Ã -Pleurer"
+    },
+    {
+        "id": 73,
+        "name": "le Pont-Illet"
+    },
+    {
+        "id": 74,
+        "name": "le Coin Guillé"
+    },
+    {
+        "id": 75,
+        "name": "Rue les Choristes"
+    }
+]

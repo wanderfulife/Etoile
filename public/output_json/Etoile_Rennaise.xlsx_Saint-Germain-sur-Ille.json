@@ -1,0 +1,218 @@
+[
+    {
+        "id": 1,
+        "name": "Les Vignes"
+    },
+    {
+        "id": 2,
+        "name": "La Bouhourdais"
+    },
+    {
+        "id": 3,
+        "name": "La Bechardiere"
+    },
+    {
+        "id": 4,
+        "name": "La Bondie"
+    },
+    {
+        "id": 5,
+        "name": "Le Rocher"
+    },
+    {
+        "id": 6,
+        "name": "La Tremblaie"
+    },
+    {
+        "id": 7,
+        "name": "Les Perras"
+    },
+    {
+        "id": 8,
+        "name": "La Noe"
+    },
+    {
+        "id": 9,
+        "name": "La Janaie"
+    },
+    {
+        "id": 10,
+        "name": "rue du Champ Long"
+    },
+    {
+        "id": 11,
+        "name": "Le Cruel"
+    },
+    {
+        "id": 12,
+        "name": "Les Clos"
+    },
+    {
+        "id": 13,
+        "name": "La Moutonnais"
+    },
+    {
+        "id": 14,
+        "name": "Le Fresne"
+    },
+    {
+        "id": 15,
+        "name": "Avenue de la Rabine des Fouteaux"
+    },
+    {
+        "id": 16,
+        "name": "Rue Blanche Epine"
+    },
+    {
+        "id": 17,
+        "name": "Place de la Mairie"
+    },
+    {
+        "id": 18,
+        "name": "Chemin de la Touchette"
+    },
+    {
+        "id": 19,
+        "name": "Rue la Couture"
+    },
+    {
+        "id": 20,
+        "name": "Rue Rocheclos"
+    },
+    {
+        "id": 21,
+        "name": "Place Poulain"
+    },
+    {
+        "id": 22,
+        "name": "Chemin de la Tertraie"
+    },
+    {
+        "id": 23,
+        "name": "Rue du Clos de l'Epine"
+    },
+    {
+        "id": 24,
+        "name": "Rue de la Scierie"
+    },
+    {
+        "id": 25,
+        "name": "Moulin Neuf"
+    },
+    {
+        "id": 26,
+        "name": "Le Clos au Pretre"
+    },
+    {
+        "id": 27,
+        "name": "Avenue du Tertre"
+    },
+    {
+        "id": 28,
+        "name": "Le Fresche du Bois"
+    },
+    {
+        "id": 29,
+        "name": "Clos de la Verdinerie"
+    },
+    {
+        "id": 30,
+        "name": "Bois Lambin"
+    },
+    {
+        "id": 31,
+        "name": "Rue du Bel Air"
+    },
+    {
+        "id": 32,
+        "name": "la Basse Rue"
+    },
+    {
+        "id": 33,
+        "name": "Le Champ Hamon"
+    },
+    {
+        "id": 34,
+        "name": "Avenue de la Gare"
+    },
+    {
+        "id": 35,
+        "name": "Rue des Ajoncs"
+    },
+    {
+        "id": 36,
+        "name": "Chemin du Bois Lambin"
+    },
+    {
+        "id": 37,
+        "name": "Allee des Courtils"
+    },
+    {
+        "id": 38,
+        "name": "Chemin Renault"
+    },
+    {
+        "id": 39,
+        "name": "Avenue du Verger au Coq"
+    },
+    {
+        "id": 40,
+        "name": "Chemin du Verger"
+    },
+    {
+        "id": 41,
+        "name": "Chemin du Bois des Vallees"
+    },
+    {
+        "id": 42,
+        "name": "Le Verger au Coq"
+    },
+    {
+        "id": 43,
+        "name": "Rue de l'Umbe"
+    },
+    {
+        "id": 44,
+        "name": "Rue du Pre"
+    },
+    {
+        "id": 45,
+        "name": "Cours du Vieux Marché"
+    },
+    {
+        "id": 46,
+        "name": "Grand Roquet"
+    },
+    {
+        "id": 47,
+        "name": "Petit Rocher"
+    },
+    {
+        "id": 48,
+        "name": "Clos de la Lande"
+    },
+    {
+        "id": 49,
+        "name": "Le réage d'Abas"
+    },
+    {
+        "id": 50,
+        "name": "Le Mesnil Aliet"
+    },
+    {
+        "id": 51,
+        "name": "Le Haut Clos de la Rotte"
+    },
+    {
+        "id": 52,
+        "name": "Le Haut Fouisseul"
+    },
+    {
+        "id": 53,
+        "name": "Le Bas Fouisseul"
+    },
+    {
+        "id": 54,
+        "name": "Le Moulin de la Fresnais"
+    }
+]
