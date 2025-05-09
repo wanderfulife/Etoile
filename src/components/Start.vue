@@ -51,13 +51,13 @@
         <div class="question-container" v-if="currentQuestion">
           <h2>{{ currentQuestion.text }}</h2>
 
-          <!-- PDF Button for Q3a and Q3a_nonvoyageur -->
+          <!-- PDF Button for Q1_quartier, Q3_quartier, and Q3a -->
           <button
-            v-if="[ 'Q1_quartier', 'Q3_quartier'].includes(currentQuestion.id)"
+            v-if="[ 'Q1_quartier', 'Q3_quartier', 'Q3a'].includes(currentQuestion.id)"
             @click="showPdf = true"
             class="btn-pdf"
           >
-            Voir le plan des quartiers
+            Voir le plan
           </button>
           <!-- Standard options -->
           <div
@@ -233,6 +233,35 @@ const gareSelections = ref({});
 const savedPoste = ref(null);
 const firstQuestion = questions.find((q) => q.id === "Poste");
 
+// Function to get the filename key for plans (e.g., L'Hermitage -> Hermitage, La Poterie -> La_Poterie)
+const getPlanFilenameKey = (posteDisplayName) => {
+  const nameMap = {
+    "L'Hermitage": "Hermitage",
+    "Saint-Médard-sur-Ille": "St_Medard",
+    "Saint-Germain-sur-Ille": "Saint-Germain-sur-Ille",
+    "La Poterie": "La_Poterie",
+    "Pontchaillou": "Pontchaillou",
+    "Noyal-sur-Vilaine": "Noyal",
+    "Montreuil-sur-Ille": "Montreuil-sur-Ille",
+    "Montfort-sur-Meu": "Montfort",
+    "Janzé": "Janze",
+    "Guichen": "Guichen",
+    "Châteaubourg": "Chateaubourg",
+    "Chevaigné": "Chevaigne",
+    "Cesson-Sévigné": "Cesson",
+    "Bruz": "Bruz",
+    "Betton": "Betton",
+    "Servon-sur-Vilaine": "Servon",
+  };
+  if (nameMap[posteDisplayName]) {
+    return nameMap[posteDisplayName];
+  }
+  // Default transformation for names not in the map:
+  // Remove apostrophes, replace spaces and other non-alphanumeric (excluding _-) with underscores.
+  // This default might need adjustment based on your other Poste names and desired plan filenames.
+  return posteDisplayName.replace(/'/g, '').replace(/[^a-zA-Z0-9_-]/g, '_');
+};
+
 const handleGareSelection = () => {
   if (currentQuestion.value.usesGareSelector) {
     const questionId = currentQuestion.value.id;
@@ -278,7 +307,29 @@ const currentQuestion = computed(() => {
         ? question.options(answers.value)
         : question.options;
 
-    // Debug logging for all questions
+    // Dynamically set PDF URL for Q3a and other specified questions
+    if (['Q1_quartier', 'Q3_quartier', 'Q3a'].includes(question.id) && answers.value.PosteText) {
+      if (question.id === 'Q3a') {
+        const planKey = getPlanFilenameKey(answers.value.PosteText);
+        pdfUrl.value = `/Plan_${planKey}.pdf`; // Assumes plans are in the root public folder
+        console.log(`Setting plan for Q3a: ${pdfUrl.value}`);
+      } else {
+        // Logic for Q1_quartier, Q3_quartier if their plans are different or static
+        // For now, assuming they might use a default or a pre-existing logic
+        // If Q1_quartier/Q3_quartier also need dynamic plans based on PosteText:
+        // const planKey = getPlanFilenameKey(answers.value.PosteText); 
+        // pdfUrl.value = `/Plan_${planKey}_quartier.pdf`; // or similar
+        // For now, let them use the default or existing Plan.pdf for non-Q3a cases
+        if (question.id !== 'Q3a') { // Keep default for other plan-needing questions for now
+            pdfUrl.value = "/Plan.pdf"; 
+        }
+      }
+    } else if (!['Q1_quartier', 'Q3_quartier', 'Q3a'].includes(question.id)) {
+        // Reset to default if the current question is not one that shows a plan
+        // This prevents showing an old plan if navigating back and forth
+        // pdfUrl.value = "/Plan.pdf"; // Or set to null/empty if no default plan should be loaded
+    }
+
     console.log(
       `Question ${question.id} detected. Current answers:`,
       answers.value
