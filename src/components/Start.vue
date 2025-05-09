@@ -53,7 +53,7 @@
 
           <!-- PDF Button for Q1_quartier, Q3_quartier, and Q3a -->
           <button
-            v-if="[ 'Q1_quartier', 'Q3_quartier', 'Q3a'].includes(currentQuestion.id)"
+            v-if="(['Q1_quartier', 'Q3_quartier'].includes(currentQuestion.id)) || (currentQuestion.id === 'Q3a' && isPlanAvailableForQ3a)"
             @click="showPdf = true"
             class="btn-pdf"
           >
@@ -98,7 +98,7 @@
           <div v-if="currentQuestion.usesStreetSelector">
             <StreetSelector 
               v-model="streetSelections[currentQuestion.id]" 
-              :poste="savedPoste" 
+              :poste="posteNameForStreetFile" 
             />
             <p>
               Rue sélectionnée ou saisie:
@@ -200,7 +200,7 @@ import { ref, computed, watch } from "vue";
 import { db } from "../firebaseConfig";
 import { collection, getDocs, addDoc } from "firebase/firestore";
 import { doc, getDoc, setDoc } from "firebase/firestore";
-import { questions } from "./surveyQuestions.js";
+import { questions, posteNameToFilenameKey } from "./surveyQuestions.js";
 import CommuneSelector from "./CommuneSelector.vue";
 import AdminDashboard from "./AdminDashboard.vue";
 import StreetSelector from "./StreetSelector.vue";
@@ -233,33 +233,38 @@ const gareSelections = ref({});
 const savedPoste = ref(null);
 const firstQuestion = questions.find((q) => q.id === "Poste");
 
-// Function to get the filename key for plans (e.g., L'Hermitage -> Hermitage, La Poterie -> La_Poterie)
+// Computed property for StreetSelector poste prop
+const posteNameForStreetFile = computed(() => {
+  if (answers.value.PosteText) {
+    return posteNameToFilenameKey(answers.value.PosteText);
+  }
+  return null; 
+});
+
+const isPlanAvailableForQ3a = computed(() => {
+  if (currentQuestion.value?.id === 'Q3a' && answers.value.PosteText) {
+    return !!getPlanFilenameKey(answers.value.PosteText); 
+  }
+  return false;
+});
+
+// Function to get the filename key for plans
 const getPlanFilenameKey = (posteDisplayName) => {
   const nameMap = {
-    "L'Hermitage": "Hermitage",
-    "Saint-Médard-sur-Ille": "St_Medard",
-    "Saint-Germain-sur-Ille": "Saint-Germain-sur-Ille",
-    "La Poterie": "La_Poterie",
-    "Pontchaillou": "Pontchaillou",
-    "Noyal-sur-Vilaine": "Noyal",
-    "Montreuil-sur-Ille": "Montreuil-sur-Ille",
-    "Montfort-sur-Meu": "Montfort",
-    "Janzé": "Janze",
-    "Guichen": "Guichen",
-    "Châteaubourg": "Chateaubourg",
-    "Chevaigné": "Chevaigne",
-    "Cesson-Sévigné": "Cesson",
-    "Bruz": "Bruz",
-    "Betton": "Betton",
-    "Servon-sur-Vilaine": "Servon",
+    "P2 Ker Lann": "Bruz",
+    "P3 Pontchaillou": "Pontchaillou",
+    "P5 Betton": "Betton",
+    "P7 Chevaigné": "Chevaigne",
+    "P8 Saint-Médard-sur-Ille": "St_Medard",
+    "P9 Châteaubourg": "Chateaubourg",
+    "P10 Noyal-Acigné": "Noyal",
+    "P11 Servon-sur-Vilaine": "Servon",
+    "P12 Cesson-Sévigné": "Cesson",
+    "P13 Montfort-sur-Meu": "Montfort",
+    "P15 L'Hermitage-Mordelles": "Hermitage",
+    "P17 La Poterie": "La_Poterie",
   };
-  if (nameMap[posteDisplayName]) {
-    return nameMap[posteDisplayName];
-  }
-  // Default transformation for names not in the map:
-  // Remove apostrophes, replace spaces and other non-alphanumeric (excluding _-) with underscores.
-  // This default might need adjustment based on your other Poste names and desired plan filenames.
-  return posteDisplayName.replace(/'/g, '').replace(/[^a-zA-Z0-9_-]/g, '_');
+  return nameMap[posteDisplayName]; 
 };
 
 const handleGareSelection = () => {
@@ -308,34 +313,17 @@ const currentQuestion = computed(() => {
         : question.options;
 
     // Dynamically set PDF URL for Q3a and other specified questions
-    if (['Q1_quartier', 'Q3_quartier', 'Q3a'].includes(question.id) && answers.value.PosteText) {
-      if (question.id === 'Q3a') {
-        const planKey = getPlanFilenameKey(answers.value.PosteText);
-        pdfUrl.value = `/Plan_${planKey}.pdf`; // Assumes plans are in the root public folder
-        console.log(`Setting plan for Q3a: ${pdfUrl.value}`);
+    if (question.id === 'Q3a' && answers.value.PosteText) {
+      const planKey = getPlanFilenameKey(answers.value.PosteText);
+      if (planKey) {
+        pdfUrl.value = `/Plan_${planKey}.pdf`;
       } else {
-        // Logic for Q1_quartier, Q3_quartier if their plans are different or static
-        // For now, assuming they might use a default or a pre-existing logic
-        // If Q1_quartier/Q3_quartier also need dynamic plans based on PosteText:
-        // const planKey = getPlanFilenameKey(answers.value.PosteText); 
-        // pdfUrl.value = `/Plan_${planKey}_quartier.pdf`; // or similar
-        // For now, let them use the default or existing Plan.pdf for non-Q3a cases
-        if (question.id !== 'Q3a') { // Keep default for other plan-needing questions for now
-            pdfUrl.value = "/Plan.pdf"; 
-        }
+        pdfUrl.value = '';
       }
+    } else if (['Q1_quartier', 'Q3_quartier'].includes(question.id)) {
+        pdfUrl.value = "/Plan.pdf";
     } else if (!['Q1_quartier', 'Q3_quartier', 'Q3a'].includes(question.id)) {
-        // Reset to default if the current question is not one that shows a plan
-        // This prevents showing an old plan if navigating back and forth
-        // pdfUrl.value = "/Plan.pdf"; // Or set to null/empty if no default plan should be loaded
     }
-
-    console.log(
-      `Question ${question.id} detected. Current answers:`,
-      answers.value
-    );
-    console.log(`${question.id} text after evaluation:`, text);
-    console.log(`${question.id} options after evaluation:`, options);
 
     return {
       ...question,
@@ -408,23 +396,10 @@ const startSurvey = () => {
   isSurveyComplete.value = false;
 };
 
-// Add this near the top of the <script setup> section
-const logAnswers = () => {
-  console.log("Current answers:", JSON.parse(JSON.stringify(answers.value)));
-};
-
 const selectAnswer = (option) => {
   if (currentQuestion.value) {
     const questionId = currentQuestion.value.id;
     answers.value[questionId] = option.id;
-
-
-
-    // Debug log all answers
-    console.log(
-      "All answers after selection:",
-      JSON.parse(JSON.stringify(answers.value))
-    );
 
     if (questionId === "Q1") {
       nextQuestion(option.next);
@@ -440,7 +415,6 @@ const handleFreeTextAnswer = () => {
   if (currentQuestion.value) {
     const questionId = currentQuestion.value.id;
     answers.value[questionId] = freeTextAnswer.value;
-
 
     if (currentQuestion.value.next === "end") {
       finishSurvey();
@@ -526,11 +500,6 @@ const finishSurvey = async () => {
   isSurveyComplete.value = true;
   const now = new Date();
 
-  console.log(
-    "Final answers before saving:",
-    JSON.parse(JSON.stringify(answers.value))
-  ); // Debug log
-
   const uniqueId = await getNextId();
 
   let surveyData = {
@@ -554,13 +523,9 @@ const finishSurvey = async () => {
     surveyData[key] = answers.value[key];
   });
 
-  console.log("Final survey data to be saved:", surveyData); // Debug log
-
   try {
     await addDoc(surveyCollectionRef, surveyData);
-    console.log("Survey data saved successfully");
   } catch (error) {
-    console.error("Error saving survey data:", error);
   }
 };
 
@@ -596,7 +561,6 @@ const getDocCount = async () => {
     const querySnapshot = await getDocs(surveyCollectionRef);
     docCount.value = querySnapshot.size;
   } catch (error) {
-    console.error("Error getting document count:", error);
   }
 };
 
