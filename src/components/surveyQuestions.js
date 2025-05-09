@@ -1,3 +1,163 @@
+// Helper to convert Poste display name to the base filename key
+const posteNameToFilenameKey = (posteDisplayName) => {
+  const nameMap = {
+    "L'Hermitage": "Hermitage",
+    "Saint-Médard-sur-Ille": "Saint-Medard-sur-Ille",
+    "Saint-Germain-sur-Ille": "Saint-Germain-sur-Ille",
+    "La Poterie": "Rennes",
+    "Pontchaillou": "Rennes",
+    "Noyal-sur-Vilaine": "Noyal-sur-Vilaine",
+    "Montreuil-sur-Ille": "Montreuil-sur-Ille",
+    "Montfort-sur-Meu": "Montfort-sur-Meu",
+    "Janzé": "Janze",
+    "Guichen": "Guichen",
+    "Châteaubourg": "Châteaubourg",
+    "Chevaigné": "Chevaigné",
+    "Cesson-Sévigné": "Cesson-Sévigné",
+    "Bruz": "Bruz",
+    "Breteil": "Breteil",
+    "Betton": "Betton",
+    "Servon-sur-Vilaine": "Servon-sur-Vilaine",
+  };
+  return nameMap[posteDisplayName] || posteDisplayName; // Fallback to original if no specific mapping
+};
+
+// Define parking options for each city, using DISPLAY NAMES as keys
+const parkingOptionsByCity = {
+  "L'Hermitage": [
+    { "id": 1, "text": "Sur le parking de la gare (50 pl)", "next": "Q3a_prime" },
+    { "id": 2, "text": "Sur le parking rue du Lavoir au Nord (100-150 pl)", "next": "Q3a_prime" },
+    { "id": 3, "text": "Sur une autre place en voirie ou parking au Nord", "next": "Q3a_prime" },
+    { "id": 4, "text": "Sur une autre place en voirie ou parking au Sud", "next": "Q3a_prime" },
+    { "id": 5, "text": "Sur un stationnement privé (box ou place de parking privée)", "next": "Q3a_prime" }
+  ],
+  "Saint-Médard-sur-Ille": [
+    { "id": 1, "text": "Sur le parking de la gare aménagé à l'Est (50 places)", "next": "Q3a_prime" },
+    { "id": 2, "text": "Sur le parking de la gare non-aménagé à l'Ouest (10 places)", "next": "Q3a_prime" },
+    { "id": 3, "text": "Sur un autre parking", "next": "Q3a_prime" },
+    { "id": 4, "text": "Sur un stationnement privé (box ou place de parking privée)", "next": "Q3a_prime" }
+  ], // Placeholder for Saint-Médard-sur-Ille
+  "Saint-Germain-sur-Ille": [
+    { "id": 1, "text": "Sur le parking de la gare (45 places)", "next": "Q3a_prime" },
+    { "id": 2, "text": "Sur un autre parking", "next": "Q3a_prime" },
+    { "id": 3, "text": "Sur un stationnement privé (box ou place de parking privée)", "next": "Q3a_prime" }
+  ],
+  "La Poterie": [
+    { "id": 1, "text": "Sur le parking (1)", "next": "Q3a_prime" },
+    { "id": 2, "text": "Sur le parking (2)", "next": "Q3a_prime" },
+    { "id": 3, "text": "Sur le parking (3)", "next": "Q3a_prime" },
+    { "id": 4, "text": "Sur un autre parking d'entreprise à proximité", "next": "Q3a_prime" },
+    { "id": 5, "text": "Sur un stationnement privé (box ou place de parking privée)", "next": "Q3a_prime" }
+  ],
+  "Pontchaillou": [
+    { "id": 1, "text": "Sur le parking 4 du CHU au Nord-Ouest de la gare", "next": "Q3a_prime" },
+    { "id": 2, "text": "Sur un autre parking à l'ouest de la gare (côté CHU)", "next": "Q3a_prime" },
+    { "id": 3, "text": "Sur un parking de résidence à l'est de la gare", "next": "Q3a_prime" },
+    { "id": 4, "text": "Sur un stationnement privé (box ou place de parking privée)", "next": "Q3a_prime" }
+  ],
+  "Noyal-sur-Vilaine": [
+    { "id": 1, "text": "Sur le parking Est de la gare (62 pl)", "next": "Q3a_prime" },
+    { "id": 2, "text": "Sur le parking Ouest de la gare (46 pl)", "next": "Q3a_prime" },
+    { "id": 3, "text": "Sur une place le long de la rue de la gare", "next": "Q3a_prime" },
+    { "id": 4, "text": "Sur une place rue de la Planche Grégoire", "next": "Q3a_prime" },
+    { "id": 5, "text": "Sur une place en voirie ou un autre parking au Nord", "next": "Q3a_prime" },
+    { "id": 6, "text": "Sur une place en voirie ou un autre parking au Sud", "next": "Q3a_prime" },
+    { "id": 7, "text": "Sur un stationnement privé (box ou place de parking privée)", "next": "Q3a_prime" }
+  ],
+  "Montreuil-sur-Ille": [
+    { "id": 1, "text": "Sur le parking de la gare (140 places)", "next": "Q3a_prime" },
+    { "id": 2, "text": "Sur une place en voirie ou un autre parking à l'est de la gare", "next": "Q3a_prime" },
+    { "id": 3, "text": "Sur une place en voirie ou un autre parking à l'ouest de la gare", "next": "Q3a_prime" },
+    { "id": 4, "text": "Sur un stationnement privé (box ou place de parking privée)", "next": "Q3a_prime" }
+  ],
+  "Montfort-sur-Meu": [
+    { "id": 1, "text": "Sur le parking au nord de la gare (130 pl)", "next": "Q3a_prime" },
+    { "id": 2, "text": "Sur la rue des Tardivières au Nord", "next": "Q3a_prime" },
+    { "id": 3, "text": "Sur un des 3 parkings de la gare côté Sud (150 pl)", "next": "Q3a_prime" },
+    { "id": 4, "text": "Sur la rue ou la place de la gare au Sud (70 pl)", "next": "Q3a_prime" },
+    { "id": 5, "text": "Sur une autre place en voirie ou parking au Nord", "next": "Q3a_prime" },
+    { "id": 6, "text": "Sur une autre place en voirie ou parking au Sud", "next": "Q3a_prime" },
+    { "id": 7, "text": "Sur un stationnement privé (box ou place de parking privée)", "next": "Q3a_prime" }
+  ],
+  "Janzé": [
+    { "id": 1, "text": "Sur le parvis de la gare (20 pl)", "next": "Q3a_prime" },
+    { "id": 2, "text": "Sur le parking de la gare (52 pl)", "next": "Q3a_prime" },
+    { "id": 3, "text": "Sur une autre place en voirie ou parking au Nord", "next": "Q3a_prime" },
+    { "id": 4, "text": "Sur une autre place en voirie ou parking au Sud", "next": "Q3a_prime" },
+    { "id": 5, "text": "Sur un stationnement privé (box ou place de parking privée)", "next": "Q3a_prime" }
+  ], // Placeholder for Janzé
+  "Guichen": [
+    { "id": 1, "text": "Sur le parking de la gare (320 places)", "next": "Q3a_prime" },
+    { "id": 2, "text": "Sur une place dans une rue à proximité de la gare", "next": "Q3a_prime" },
+    { "id": 3, "text": "Sur un stationnement privé (box ou place de parking privée)", "next": "Q3a_prime" }
+  ],
+  "Châteaubourg": [
+    { "id": 1, "text": "Sur le parvis ou la rue de la Gare au nord (30 pl)", "next": "Q3a_prime" },
+    { "id": 2, "text": "Sur le parking de la médiathèque au nord-ouest de la gare (132 pl)", "next": "Q3a_prime" },
+    { "id": 3, "text": "Sur le parking au sud de la gare (217 pl)", "next": "Q3a_prime" },
+    { "id": 4, "text": "Sur une place en voirie ou un autre parking au Nord", "next": "Q3a_prime" },
+    { "id": 5, "text": "Sur une place en voirie ou un autre parking au Sud", "next": "Q3a_prime" },
+    { "id": 6, "text": "Sur un stationnement privé (box ou place de parking privée)", "next": "Q3a_prime" }
+  ], // Placeholder for Châteaubourg
+  "Chevaigné": [
+    { "id": 1, "text": "Sur le parking Nord de la gare (côté commerces)", "next": "Q3a_prime" },
+    { "id": 2, "text": "Sur le parking Sud de la gare", "next": "Q3a_prime" },
+    { "id": 3, "text": "Sur le parking du cimetière à 5 minutes à pied au Nord", "next": "Q3a_prime" },
+    { "id": 4, "text": "Sur une place en voirie ou un autre parking au Nord", "next": "Q3a_prime" },
+    { "id": 5, "text": "Sur une place en voirie ou un autre parking au Sud", "next": "Q3a_prime" },
+    { "id": 6, "text": "Sur un stationnement privé (box ou place de parking privée)", "next": "Q3a_prime" }
+  ],
+  "Cesson-Sévigné": [
+    { "id": 1, "text": "Sur le parking au sud de la gare (71 pl)", "next": "Q3a_prime" },
+    { "id": 2, "text": "Sur l'impasse de la gare au Nord", "next": "Q3a_prime" },
+    { "id": 3, "text": "Sur l'avenue des Peupliers au Nord", "next": "Q3a_prime" },
+    { "id": 4, "text": "Dans un des parkings d'entreprise à proximité de la gare", "next": "Q3a_prime" },
+    { "id": 5, "text": "Sur une autre place en voirie ou parking au Nord", "next": "Q3a_prime" },
+    { "id": 6, "text": "Sur une autre place en voirie ou parking au Sud", "next": "Q3a_prime" },
+    { "id": 7, "text": "Sur un stationnement privé (box ou place de parking privée)", "next": "Q3a_prime" }
+  ],
+  "Bruz": [
+    { "id": 1, "text": "Sur le parking du campus Ker Lann", "next": "Q3a_prime" },
+    { "id": 2, "text": "Sur le parking Espacil Habitat", "next": "Q3a_prime" },
+    { "id": 3, "text": "Sur un autre parking à proximité", "next": "Q3a_prime" },
+    { "id": 4, "text": "Sur un stationnement privé (box ou place de parking privée)", "next": "Q3a_prime" }
+  ],
+  "Breteil": [
+    { "id": 1, "text": "Sur le parking de la gare (58 pl)", "next": "Q3a_prime" },
+    { "id": 2, "text": "Sur une autre place en voirie ou parking au Nord", "next": "Q3a_prime" },
+    { "id": 3, "text": "Sur une autre place en voirie ou parking au Sud", "next": "Q3a_prime" },
+    { "id": 4, "text": "Sur un stationnement privé (box ou place de parking privée)", "next": "Q3a_prime" }
+  ],
+  "Betton": [
+    { "id": 1, "text": "Sur le parking de la gare aménagé côté Ouest", "next": "Q3a_prime" },
+    { "id": 2, "text": "Sur le parking de la gare non aménagé côté Est", "next": "Q3a_prime" },
+    { "id": 3, "text": "Sur une place en voirie ou un autre parking côté Ouest", "next": "Q3a_prime" },
+    { "id": 4, "text": "Sur une place en voirie ou un autre parking côté Est", "next": "Q3a_prime" },
+    { "id": 5, "text": "Sur un stationnement privé (box ou place de parking privée)", "next": "Q3a_prime" }
+  ],
+  "Servon-sur-Vilaine": [
+    { "id": 1, "text": "Sur le parking au sud de la gare (100 pl)", "next": "Q3a_prime" },
+    { "id": 2, "text": "Sur le parking au nord de la gare (20 pl)", "next": "Q3a_prime" },
+    { "id": 3, "text": "Sur une place en voirie ou un autre parking au Nord", "next": "Q3a_prime" },
+    { "id": 4, "text": "Sur une place en voirie ou un autre parking au Sud", "next": "Q3a_prime" },
+    { "id": 5, "text": "Sur un stationnement privé (box ou place de parking privée)", "next": "Q3a_prime" }
+  ],
+  "DefaultParking": [
+    { "id": 1, "text": "Sur le parking de la gare", "next": "Q3a_prime" },
+    { "id": 2, "text": "Sur un autre parking à proximité", "next": "Q3a_prime" },
+    { "id": 3, "text": "En voirie (dans la rue)", "next": "Q3a_prime" },
+    { "id": 4, "text": "Sur un stationnement privé", "next": "Q3a_prime" },
+    { "id": 5, "text": "Autre", "next": "Q3a_prime" }
+  ]
+};
+
+// Populate placeholders with default options
+// Object.keys(parkingOptionsByCity).forEach(cityKey => {
+//   if (cityKey !== "DefaultParking" && parkingOptionsByCity[cityKey].length === 0) {
+//     parkingOptionsByCity[cityKey] = JSON.parse(JSON.stringify(parkingOptionsByCity.DefaultParking));
+//   }
+// });
+
 export const questions = [
   {
     id: "Poste",
@@ -6,7 +166,8 @@ export const questions = [
       { id: 1, text: "Servon-sur-Vilaine", next: "Q1" },
       { id: 2, text: "Saint-Médard-sur-Ille", next: "Q1" },
       { id: 3, text: "Saint-Germain-sur-Ille", next: "Q1" },
-      { id: 4, text: "Rennes", next: "Q1" },
+      { id: 17, text: "La Poterie", next: "Q1" },
+      { id: 18, text: "Pontchaillou", next: "Q1" },
       { id: 5, text: "Noyal-sur-Vilaine", next: "Q1" },
       { id: 6, text: "Montreuil-sur-Ille", next: "Q1" },
       { id: 7, text: "Montfort-sur-Meu", next: "Q1" },
@@ -19,7 +180,7 @@ export const questions = [
       { id: 14, text: "Bruz", next: "Q1" },
       { id: 15, text: "Breteil", next: "Q1" },
       { id: 16, text: "Betton", next: "Q1" }
-    ]
+    ].sort((a, b) => a.text.localeCompare(b.text))
   },
   {
     "id": "Q1",
@@ -33,13 +194,17 @@ export const questions = [
     "id": "Q2",
     "text": "Quelle est l'origine de votre déplacement ? D'où êtes-vous parti pour arriver à la gare ?",
     "options": [
-      { "id": 1, "text": "L'Hermitage", "next": "Q2a" },
+      { 
+        "id": 1, 
+        "text": (answers) => answers.PosteText || 'Selected Poste',
+        "next": "Q2a" 
+      },
       { "id": 2, "text": "Autre commune : préciser nom de la commune", "next": "Q2c" }
     ]
   },
   {
     "id": "Q2a",
-    "text": "De quelle rue de L'Hermitage venez-vous ?",
+    "text": (answers) => `De quelle rue de ${answers.PosteText || 'la commune sélectionnée'} venez-vous ?`,
     "usesStreetSelector": true,
     "freeText": true,
     "next": "Q3"
@@ -77,13 +242,10 @@ export const questions = [
   {
     "id": "Q3a",
     "text": "Où avez-vous stationné votre véhicule ?",
-    "options": [
-      { "id": 1, "text": "Sur le parking de la gare (50 pl)", "next": "Q3a_prime" },
-      { "id": 2, "text": "Sur le parking rue du Lavoir au Nord (100-150 pl)", "next": "Q3a_prime" },
-      { "id": 3, "text": "Sur une autre place en voirie ou parking au Nord", "next": "Q3a_prime" },
-      { "id": 4, "text": "Sur une autre place en voirie ou parking au Sud", "next": "Q3a_prime" },
-      { "id": 5, "text": "Sur un stationnement privé (box ou place de parking privée)", "next": "Q3a_prime" }
-    ]
+    "options": (answers) => {
+      const posteDisplayName = answers.PosteText;
+      return parkingOptionsByCity[posteDisplayName] || parkingOptionsByCity.DefaultParking;
+    }
   },
   {
     "id": "Q3a_prime",

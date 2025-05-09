@@ -62,7 +62,7 @@
           <!-- Standard options -->
           <div
             v-if="
-              !currentQuestion.freeText && !currentQuestion.usesCommuneSelector
+              !currentQuestion.freeText && !currentQuestion.usesCommuneSelector && !currentQuestion.usesStreetSelector && !currentQuestion.usesGareSelector
             "
           >
             <div v-for="(option, index) in currentQuestionOptions" :key="index">
@@ -71,7 +71,7 @@
                 @click="selectAnswer(option)"
                 class="btn-option"
               >
-                {{ option.text }}
+                {{ typeof option.text === 'function' ? option.text(answers) : option.text }}
               </button>
             </div>
           </div>
@@ -96,7 +96,10 @@
           </div>
           <!-- Street Selector (new) -->
           <div v-if="currentQuestion.usesStreetSelector">
-            <StreetSelector v-model="streetSelections[currentQuestion.id]" />
+            <StreetSelector 
+              v-model="streetSelections[currentQuestion.id]" 
+              :poste="savedPoste" 
+            />
             <p>
               Rue sélectionnée ou saisie:
               {{ streetSelections[currentQuestion.id] }}
@@ -120,7 +123,7 @@
             </button>
           </div>
           <!-- Free Text Questions -->
-          <div v-if="currentQuestion.freeText && !currentQuestion.usesStreetSelector">
+          <div v-if="currentQuestion.freeText && !currentQuestion.usesStreetSelector && !currentQuestion.usesCommuneSelector && !currentQuestion.usesGareSelector">
             <div class="input-container">
               <input
                 v-if="['Q11', 'Q12b'].includes(currentQuestion.id)"
@@ -337,8 +340,9 @@ const setEnqueteur = () => {
 };
 
 const selectPoste = (option) => {
-  savedPoste.value = option.id;
+  savedPoste.value = option.text;
   answers.value["Poste"] = option.id;
+  answers.value["PosteText"] = option.text;
   currentStep.value = "start";
 };
 
@@ -513,9 +517,27 @@ const finishSurvey = async () => {
 const resetSurvey = () => {
   currentStep.value = "start";
   startDate.value = "";
-  answers.value = { Q1: persistentQ1.value };
-  currentQuestionIndex.value = 1; // Start from Q2
+  const preservedEnqueteur = enqueteur.value;
+  const preservedPosteId = answers.value["Poste"];
+  const preservedPosteText = answers.value["PosteText"];
+
+  answers.value = {};
+  if (preservedPosteId) {
+    answers.value["Poste"] = preservedPosteId;
+    answers.value["PosteText"] = preservedPosteText;
+  }
+  enqueteur.value = preservedEnqueteur;
+  
+  currentStep.value = 'start';
+
+  currentQuestionIndex.value = 1;
+  questionPath.value = [questions[1].id];
   isSurveyComplete.value = false;
+  streetSelections.value = {};
+  communeSelections.value = {};
+  gareSelections.value = {};
+  postalCodePrefixes.value = {};
+  freeTextAnswer.value = '';
 };
 
 const getDocCount = async () => {
