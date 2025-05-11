@@ -209,17 +209,45 @@ export const questions = [
   {
     "id": "Q2",
     "text": "Quelle est l'origine de votre déplacement ? D'où êtes-vous parti pour arriver à la gare ?",
-    "options": [
-      { 
-        "id": 1, 
-        "text": (answers) => {
-          const posteFilenameKey = posteNameToFilenameKey(answers.PosteText);
-          return posteFilenameKey || 'Selected Poste';
-        },
-        "next": "Q2a" 
-      },
-      { "id": 2, "text": "Autre commune : préciser nom de la commune", "next": "Q2c" }
-    ]
+    "options": (answers) => {
+      if (answers.PosteText === "P1 Guichen – Bourg des Comptes") {
+        return [
+          {
+            id: 1,
+            text: "Guichen",
+            next: "Q2a",
+            posteOverride: "Guichen"
+          },
+          {
+            id: 2,
+            text: "Bourg-des-Comptes",
+            next: "Q2a",
+            posteOverride: "Bourg-des-Comptes"
+          },
+          {
+            id: 3,
+            text: "Autre commune : préciser nom de la commune",
+            next: "Q2Commune"
+          }
+        ];
+      } else {
+        return [
+          {
+            id: 1,
+            text: (answers) => {
+              const posteFilenameKey = posteNameToFilenameKey(answers.PosteText);
+              return posteFilenameKey || 'Selected Poste';
+            },
+            next: "Q2a"
+          },
+          {
+            id: 2,
+            text: "Autre commune : préciser nom de la commune",
+            next: "Q2Commune"
+          }
+        ];
+      }
+    }
   },
   {
     "id": "Q2a",
@@ -232,9 +260,15 @@ export const questions = [
     "next": "Q3"
   },
   {
-    "id": "Q2c",
-    "text": "Pouvez-vous nous préciser de quel village, lieu-dit ou quartier ?",
+    "id": "Q2Commune",
+    "text": "précisez nom de la commune",
     "usesCommuneSelector": true,
+    "freeText": true,
+    "next": "Q2b"
+  },
+  {
+    "id": "Q2b",
+    "text": "Pouvez-vous nous préciser de quel village, lieu-dit ou quartier ? ",
     "freeText": true,
     "next": "Q3"
   },
@@ -305,10 +339,11 @@ export const questions = [
   },
   {
     "id": "Q4",
-    "text": "Possédez-vous un abonnement TER ?",
+    "text": "Possédez-vous un abonnement pour prendre le train ?",
     "options": [
-      { "id": 1, "text": "Oui", "next": "Q5" },
-      { "id": 2, "text": "Non", "next": "Q5" }
+      { "id": 1, "text": "Oui, un abonnement TER", "next": "Q5" },
+      { "id": 2, "text": "Oui, un abonnement Unipass (TER, + reseau Star)", "next": "Q5" },
+      { "id": 3, "text": "Non", "next": "Q5" }
     ]
   },
   {
@@ -376,16 +411,7 @@ export const questions = [
   },
   {
     "id": "Q7",
-    "text": "A quelle fréquence réalisez-vous ce déplacement en train ?",
-    "options": [
-      { "id": 1, "text": "Tous les jours de la semaine ou presque (au moins 3 fois par semaine)", "next": "Q8" },
-      { "id": 2, "text": "Régulièrement (au moins une fois par mois)", "next": "Q8" },
-      { "id": 3, "text": "Occasionnellement (moins d'une fois par mois)", "next": "Q8" }
-    ]
-  },
-  {
-    "id": "Q8",
-    "text": "Selon vous, que faudrait-il faire en priorité pour améliorer les conditions d'accès à cette gare ?",
+    "text": "Selon vous, que faudrait-il faire en priorité pour améliorer les conditions d'accès à cette gare ? (Notez en clair seulent les mots clés, si cyclistes, interroger leur stratégie stationnement/emporter)",
     "freeText": true,
     "next": "end"
   }

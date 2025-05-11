@@ -235,6 +235,20 @@ const firstQuestion = questions.find((q) => q.id === "Poste");
 
 // Computed property for StreetSelector poste prop
 const posteNameForStreetFile = computed(() => {
+  // For Q2a, check if Q2's selected option has posteOverride
+  if (currentQuestion.value?.id === 'Q2a') {
+    // Find the selected Q2 option
+    const q2Options = questions.find(q => q.id === 'Q2').options(answers.value);
+    const selectedQ2Id = answers.value.Q2;
+    const selectedQ2Option = q2Options && q2Options.find(opt => opt.id === selectedQ2Id);
+    if (selectedQ2Option && selectedQ2Option.posteOverride) {
+      // If Bourg-des-Comptes, use Guichen's street list
+      if (selectedQ2Option.posteOverride === 'Bourg-des-Comptes') {
+        return 'Guichen';
+      }
+      return selectedQ2Option.posteOverride;
+    }
+  }
   if (answers.value.PosteText) {
     return posteNameToFilenameKey(answers.value.PosteText);
   }
