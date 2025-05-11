@@ -45,12 +45,12 @@ const parkingOptionsByCity = {
   "P8 Saint-Médard-sur-Ille": [ 
     { "id": 1, "text": "Sur le parking de la gare aménagé à l'Est (50 places)", "next": "Q3a_prime" },
     { "id": 2, "text": "Sur le parking de la gare non-aménagé à l'Ouest (10 places)", "next": "Q3a_prime" },
-    { "id": 3, "text": "Sur un autre parking : préciser", "next": "Q3a_prime" },
+    { "id": 3, "text": "Sur un autre parking : préciser", "next": "Q3a_autre" },
     { "id": 4, "text": "Sur un stationnement privé (box ou place de parking privée)", "next": "Q3a_prime" }
   ],
   "P6 Saint-Germain-sur-Ille": [ 
     { "id": 1, "text": "Sur le parking de la gare (45 places)", "next": "Q3a_prime" },
-    { "id": 2, "text": "Sur un autre parking : préciser", "next": "Q3a_prime" },
+    { "id": 2, "text": "Sur un autre parking : préciser", "next": "Q3a_autre" },
     { "id": 3, "text": "Sur un stationnement privé (box ou place de parking privée)", "next": "Q3a_prime" }
   ],
   "P17 La Poterie": [
@@ -158,7 +158,7 @@ const parkingOptionsByCity = {
     { "id": 2, "text": "Sur un autre parking à proximité", "next": "Q3a_prime" },
     { "id": 3, "text": "En voirie (dans la rue)", "next": "Q3a_prime" },
     { "id": 4, "text": "Sur un stationnement privé", "next": "Q3a_prime" },
-    { "id": 5, "text": "Autre", "next": "Q3a_prime" }
+    { "id": 5, "text": "Autre: Préciser", "next": "Q3a_autre" }
   ]
 };
 
@@ -322,6 +322,12 @@ export const questions = [
       const posteDisplayName = answers.PosteText;
       return parkingOptionsByCity[posteDisplayName] || parkingOptionsByCity.DefaultParking;
     }
+  },
+  {
+    "id": "Q3a_autre",
+    "text": "Précisez",
+    "freeText": true,
+    "next": "Q3a_prime"
   },
   {
     "id": "Q3a_prime",
