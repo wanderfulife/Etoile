@@ -276,6 +276,7 @@ const getPlanFilenameKey = (posteDisplayName) => {
     "P12 Cesson-Sévigné": "Cesson",
     "P13 Montfort-sur-Meu": "Montfort",
     "P15 L'Hermitage-Mordelles": "Hermitage",
+    "P16 Janzé": "Janze",
     "P17 La Poterie": "La_Poterie",
   };
   return nameMap[posteDisplayName]; 

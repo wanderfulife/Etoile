@@ -230,6 +230,26 @@ export const questions = [
             next: "Q2Commune"
           }
         ];
+      } else if (answers.PosteText === "P3 Pontchaillou") {
+        return [
+          {
+            id: 1,
+            text: "D'un des bâtiments de l'université ou du CHU de Pontchaillou",
+            next: "Q2a",
+            posteOverride: "Rennes"
+          },
+          {
+            id: 2,
+            text: "D'un autre quartier de Rennes",
+            next: "Q2a",
+            posteOverride: "Rennes"
+          },
+          {
+            id: 3,
+            text: "Autre commune : préciser nom de la commune",
+            next: "Q2Commune"
+          }
+        ];
       } else {
         return [
           {
