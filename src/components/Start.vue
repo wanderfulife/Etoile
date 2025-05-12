@@ -242,8 +242,10 @@ const posteNameForStreetFile = computed(() => {
     const selectedQ2Id = answers.value.Q2;
     const selectedQ2Option = q2Options && q2Options.find(opt => opt.id === selectedQ2Id);
     if (selectedQ2Option && selectedQ2Option.posteOverride) {
-      // If Bourg-des-Comptes, use Guichen's street list
       if (selectedQ2Option.posteOverride === 'Bourg-des-Comptes') {
+        return 'BourgdesComptes';
+      }
+      if (selectedQ2Option.posteOverride === 'Guichen') {
         return 'Guichen';
       }
       return selectedQ2Option.posteOverride;
